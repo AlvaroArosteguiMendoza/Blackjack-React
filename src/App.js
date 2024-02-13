@@ -143,16 +143,16 @@ class App extends Component {
   } 
   calcularganador () {
     if (this.state.puntuacionjugador <= 21 && this.state.puntuacioncrupier > 21) {
-      return "Gana Jugador";
+      return "Has ganado";
     } else if (this.state.puntuacioncrupier <= 21 && this.state.puntuacionjugador > 21) {
-      return "Crupier Gana"
+      return "Ha ganado el Crupier"
     } else {
       if (this.state.puntuacioncrupier === this.state.puntuacionjugador) {
         return "Empate"
       } else if (this.state.puntuacioncrupier > this.state.puntuacionjugador) {
-        return "Gana Crupier"
+        return "Ha ganado el Crupier"
       } else {
-        return "Gana Jugador"
+        return "Has ganado"
       }
     }
 }
@@ -201,33 +201,38 @@ render(){
   const {nuevaronda} = this.state;
   const ganador = this.calcularganador()
   return ( 
+    <div>
+      <div className='fondo'>
+        <h1 className="titulo">Blackjack</h1>
+      </div>
       <div id="juego">
         <div id="tablero">
-          {nuevaronda && (
-            <div id="nuevaronda">
-              <h1>{ganador}</h1>
-              <BotonComponent onClick={this.nuevaronda} texto="Nueva Ronda" />
-            </div>
-          )}
-          <div id="manocrupier">
-            <h1>Puntuacion Crupier: {this.state.puntuacioncrupier}</h1>
-            <ManoComponent cartas={this.state.crupiercartas} />
+        {nuevaronda && (
+          <div id="nuevaronda">
+            <h1>{ganador}</h1>
+            <BotonComponent onClick={this.nuevaronda} texto="Nueva Ronda" />
           </div>
-          <div id="botoncrupier">
-            <BotonComponent onClick={this.robarcrupier} texto="Robar" />
-          </div>
-          <div id="manojugador">
-            <h1>Puntuacion jugador: {this.state.puntuacionjugador}</h1>
-            <ManoComponent cartas={this.state.jugadorcartas} />
-          </div>
-          <div id="botonjugador">
-            <BotonComponent onClick={this.robarcarta} texto="Robar" />
-            <BotonComponent onClick={this.plantarse} texto="Plantarse" />
-          </div>
+        )}
+        <div id="manocrupier">
+          <h1>Puntuacion Crupier: {this.state.puntuacioncrupier}</h1>
+          <ManoComponent cartas={this.state.crupiercartas} />
+        </div>
+        <div id="botoncrupier">
+          <BotonComponent onClick={this.robarcrupier} texto="Robar" />
+        </div>
+        <div id="manojugador">
+          <h1>Puntuacion jugador: {this.state.puntuacionjugador}</h1>
+          <ManoComponent cartas={this.state.jugadorcartas} />
+        </div>
+        <div id="botonjugador">
+          <BotonComponent onClick={this.robarcarta} texto="Robar" />
+          <BotonComponent onClick={this.plantarse} texto="Plantarse" />
         </div>
       </div>
-    );
-  }
+    </div>
+    </div>
+  );
+}
 }
     
 export default App;

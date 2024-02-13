@@ -1,23 +1,62 @@
-#juego {
+
+
+@font-face {
+  font-family: 'fh';
+  src: url('images/fuente.ttf') format('truetype'),
+}
+
+body{
+  background-image: url('images/fondo.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  font-family: 'fh', sans-serif;
+}
+
+.fondo{
   display: flex;
+  justify-content: center;
+  color: white;
+  -webkit-text-stroke: black 1px;
+  text-align: center;
+}
+.titulo{
+  color: #ffffff; /* Cambia el color del título a azul */
+  font-family: 'fh', sans-serif; /* Utiliza la fuente personalizada */
+  width: 100%;
+  font-size: 50px;
+}
+
+#juego {
+  backdrop-filter: blur(5px);
+  width: 100%;
+  display: flex;
+  color: white;
+font-size: 40px; 
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('images/fondo.jpg');
+  
 }
 
 #tablero {
+  background-color: rgba(50, 163, 50, 0.103);
+  width: 60%;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 #nuevaronda {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: transparent;
+  color: yellow;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   margin-bottom: 20px;
+  -webkit-text-stroke: black 0.5px;
+
 }
 
 #manocrupier,
@@ -48,19 +87,20 @@ h1 {
 
 #manocrupier .carta,
 #manojugador .carta {
-  width: 80px;
+  width: 200px;
 }
 
 #manocrupier .carta img,
 #manojugador .carta img {
-  width: 100%;
+  width: 250px;
   height: auto;
 }
 
 /* CSS */
 button {
+  font-family: 'fh', sans-serif;
   appearance: button;
-  background-color: #1899D6;
+  background-color: #634430;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
@@ -68,9 +108,8 @@ button {
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: din-round,sans-serif;
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 900;
   letter-spacing: .8px;
   line-height: 20px;
   margin: 0;
@@ -91,7 +130,7 @@ button {
 
 button:after {
   background-clip: padding-box;
-  background-color: #1CB0F6;
+  background-color: #88512c;
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
